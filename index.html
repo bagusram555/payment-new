@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Form Pembayaran</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #status {
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h2>Form Pembayaran</h2>
+  <form id="paymentForm">
+    <input type="text" name="nama" placeholder="Nama Lengkap" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="number" name="nominal" placeholder="Nominal Pembayaran" required>
+    <input type="file" name="bukti" accept="image/*,application/pdf" required>
+    <button type="submit">Kirim Pembayaran</button>
+  </form>
+  <p id="status"></p>
+
+  <script>
+    const form = document.getElementById('paymentForm');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      document.getElementById('status').innerText = 'Mengirim...';
+
+      try {
+        const response = await fetch('https://script.google.com/macros/s/AKfycby4CRcrHkeyPqXzKTKRRy2Xpa-_QkD2U_rGnIQUIQEhWZZSnrezF2L3H9EC-X89uOMz/exec', {
+          method: 'POST',
+          body: formData
+        });
+
+        const result = await response.text();
+        document.getElementById('status').innerText = result;
+        form.reset();
+      } catch (error) {
+        document.getElementById('status').innerText = 'Gagal mengirim: ' + error.message;
+      }
+    });
+  </script>
+</body>
+</html>

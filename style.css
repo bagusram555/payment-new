@@ -1,0 +1,57 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 480px;
+  margin: 50px auto;
+  background: white;
+  padding: 25px 30px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 12px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="number"],
+form input[type="file"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  background-color: #28a745;
+  color: white;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+#status {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #cc0000;
+}
